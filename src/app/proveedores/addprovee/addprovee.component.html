@@ -38,13 +38,17 @@
             </div>
             <div class="form-group">
                 <label for="email">Correo Electronico</label>
-                <input type="email" class="form-control" id="email" ngModel name="email" required email>
+                <i class="fa fa-check-circle check" *ngIf="email.valid"></i>
+                <i class="fa fa-exclamation-circle uncheck" *ngIf="email.valid && email.touched"></i>
+                <input type="email" class="form-control" id="email" ngModel name="email" required email #email="ngModel">
+                <p class="alert alert-danger" *ngIf="email.valid && email.touched">Por favor introduzca una direccion de correo valida</p>
             </div>
             <div class="form-group">
                 <label for="contacto">Persona de Contacto</label>
                 <input type="text" class="form-control" id="contacto" ngModel name="contacto">
             </div>
-            <button type="submit" class="btn btn-success">Añadir Proveedor</button>
+            <button type="submit" class="btn btn-success" [disabled]="!formpro.valid">Añadir Proveedor</button>
+            <p class="alert alert-danger" *ngIf="!formpro.valid">Por favor complete todos los campos obligatorios</p>
         </form>
         <hr>
         <!-- <pre>
