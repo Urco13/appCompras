@@ -37,6 +37,8 @@ export class AddpresComponent implements OnInit {
   onSubmit(){
     this.presupuesto = this.savePresupuesto();
     this.presupuestoService.postPresupuesto(this.presupuesto).subscribe(newpress => {});
+
+    this.presupuestoForm.reset();
   }
 
   onChanges(): void {

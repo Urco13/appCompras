@@ -17,5 +17,8 @@ export class PresupuestosService {
     return this.http.post(this.presURL, newpres, {headers});
   }
 
+  getPresupuestos(){
 
+    return this.http.get(this.presURL);
+  }
 }
