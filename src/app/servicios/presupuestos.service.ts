@@ -40,4 +40,11 @@ export class PresupuestosService {
 
     return this.http.put(url, newpre, {headers});
   }
+
+  delPresupuesto(id$: string){
+
+    const url= `${this.preURL}/${id$}.json`;
+
+    return this.http.delete( url );
+  }
 }
