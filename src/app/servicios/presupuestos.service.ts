@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PresupuestosService {
 
+  presURL = 'https://comprasapp-14baf.firebaseio.com/presupuestos.json';
   constructor(private http: HttpClient) { }
 
-  configUrl = 'assets/config.json';
+  postPresupuesto(presupuesto: any ){
 
-getConfig() {
-  return this.http.get(this.configUrl);
-}
+    const newpres = JSON.stringify(presupuesto);
+    const headers = new HttpHeaders({'ContentType': 'application/json'});
+
+    return this.http.post(this.presURL, newpres, {headers});
+  }
+
+
 }
