@@ -18,6 +18,7 @@ import { PresupuestosComponent } from './presupuestos/presupuestos/presupuestos.
 import { EditpresComponent } from './presupuestos/editpres/editpres.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { AutenticacionService } from './servicios/autenticacion.service';
+import { InisesComponent } from './autenticacion/inises/inises.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'presupuestos', component: PresupuestosComponent },
   { path: 'editpres/:id', component: EditpresComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'inises', component: InisesComponent },
   { path: '**', component: InicioComponent }
 
 ]
@@ -42,6 +44,7 @@ const routes: Routes = [
     AddpresComponent,
     EditpresComponent,
     RegistroComponent,
+    InisesComponent,
   ],
   imports: [
     BrowserModule,
