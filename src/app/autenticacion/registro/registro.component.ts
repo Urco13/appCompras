@@ -13,6 +13,24 @@ export class RegistroComponent implements OnInit {
   registroForm: FormGroup;
   userdata: any;
 
+  erroresForm = {
+    'email': '',
+    'password': ''
+  };
+
+  mensajesValidacion = {
+    'email': {
+      'required': 'Email obligatorio',
+      'email': 'Introduzca un email correcto'
+    },
+    'password':{
+      'required': 'Contrasena obligatoria',
+      'pattern': 'La contrasena por lo menos tiene que queter un numero y una letra',
+      'minlength': 'y mas de 6 caracteres'
+    }
+
+  };
+
   constructor(private formBuilder: FormBuilder,
     private autenticacionService: AutenticacionService,
     private router: Router,
@@ -23,22 +41,40 @@ export class RegistroComponent implements OnInit {
     this.registroForm = this.formBuilder.group({
       'email': ['', [ Validators.required, Validators.email]],
       'password': ['', [ Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(6)]]
-    })
+    });
+
+    this.registroForm.valueChanges.subscribe(data => this.onValueChanged(data));
   }
 
   onSubmit() {
     this.userdata = this.saveUserdata();
     this.autenticacionService.registroUsuario(this.userdata);
     this.router.navigate(['Inicio']);
-
+    this.onValueChanged();
   }
 
   saveUserdata() {
     const saveUserdata = {
       email: this.registroForm.get('email').value,
       password: this.registroForm.get('password').value
-    }
+    };
 
     return saveUserdata;
   }
+
+  onValueChanged(data?: any) {
+    if (!this.registroForm) { return; }
+    const form = this.registroForm;
+    for (const field in this.erroresForm) {
+
+      this.erroresForm[field] = '';
+      const control = form.get(field);
+      if (control && control.dirty && !control.valid) {
+        const messages = this.mensajesValidacion[field];
+        for (const key in control.errors) {
+          this.erroresForm[field] += messages[key] + ' ';
+         }
+       }
+     }
+   }
 }
