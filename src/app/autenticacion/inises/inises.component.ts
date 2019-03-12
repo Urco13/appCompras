@@ -30,7 +30,7 @@ export class InisesComponent implements OnInit {
     this.userdata = this.saveUserdata();
     this.autenticacionService.inicioSesion(this.userdata);
     setTimeout(() => {
-    if(this.isAuth() === false){
+    if (this.isAuth() === false) {
       this.mensaje = true;
       }
     }, 2000);
@@ -45,7 +45,7 @@ export class InisesComponent implements OnInit {
     return saveUserdata;
   }
 
-  isAuth(){
+  isAuth() {
     return this.autenticacionService.isAuthenticated();
   }
 }
