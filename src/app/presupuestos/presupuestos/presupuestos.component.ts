@@ -14,7 +14,7 @@ export class PresupuestosComponent implements OnInit {
 
     this.presupuestosService.getPresupuestos().subscribe(presupuestos => {
 
-      for(const id$ in presupuestos){
+      for (const id$ in presupuestos) {
         const p = presupuestos[id$];
         p.id$ = id$;
         this.presupuestos.push(presupuestos[id$]);

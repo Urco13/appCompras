@@ -10,6 +10,9 @@
             <hr>
             <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Inicie sesion</button>
         </form>
+        <p>Si no dispone de cuenta pulse
+            <a routerLink="/registro" routerLinkActive="router-link-active">Aqui</a>
+        </p>
         <p class="alert alert-danger" *ngIf="mensaje">El usuario o contraseña no es correcto </p>
     </div>
     <div class="col col-md"></div>
