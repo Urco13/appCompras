@@ -5,17 +5,20 @@
     <a class="navbar-brand" href="#">Compras App</a>
     <div class="collapse navbar-collapse" id="containerNavbar">
         <ul class="navbar-nav mr-auto w-100 justify-content-end">
-            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" *ngIf="isAtuth()">
                 <a class="nav-link" routerLink="/">Inicio </a>
             </li>
-            <li class="nav-item" routerLinkActive="active">
+            <li class="nav-item" routerLinkActive="active" *ngIf="isAtuth()">
                 <a class="nav-link" routerLink="/proveedores">Proveedores</a>
             </li>
-            <li class="nav-item" routerLinkActive="active">
+            <li class="nav-item" routerLinkActive="active" *ngIf="isAtuth()">
                 <a class="nav-link" routerLink="/presupuestos">Presupuestos</a>
             </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/inises">Inicion sesion</a>
+            <li class="nav-item" routerLinkActive="active" *ngIf="!isAtuth()">
+                <button class="btn btn-primary" routerLink="/inises">Inicio sesion</button>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="isAtuth()">
+                <button class="btn btn-primary" (click)="onLogout()">Cerrar sesion</button>
             </li>
         </ul>
     </div>

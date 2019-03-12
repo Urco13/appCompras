@@ -24,4 +24,17 @@ export class AutenticacionService {
     }).catch(error => {console.log(error);
     });
   }
+
+  isAuthenticated(){
+    const user = firebase.auth().currentUser;
+    if(user){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  logout(){
+    firebase.auth().signOut();
+  }
 }
