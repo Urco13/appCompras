@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-addfra',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddfraComponent implements OnInit {
 
+  facturaForm: FormGroup;
   constructor() { }
 
   ngOnInit() {
