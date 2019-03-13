@@ -36,7 +36,7 @@ export class AddproveeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
     this.proveedor.nombre = this.formpro.value.nombre;
     this.proveedor.cif = this.formpro.value.cif;
     this.proveedor.direccion = this.formpro.value.direccion;

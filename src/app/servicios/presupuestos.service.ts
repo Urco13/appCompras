@@ -43,7 +43,7 @@ export class PresupuestosService {
 
   delPresupuesto(id$: string){
 
-    const url= `${this.preURL}/${id$}.json`;
+    const url = `${this.preURL}/${id$}.json`;
 
     return this.http.delete( url );
   }
