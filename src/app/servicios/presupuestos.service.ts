@@ -10,7 +10,7 @@ export class PresupuestosService {
   preURL = 'https://comprasapp-14baf.firebaseio.com/presupuestos';
   constructor(private http: HttpClient) { }
 
-  postPresupuesto(presupuesto: any ){
+  postPresupuesto(presupuesto: any ) {
 
     const newpres = JSON.stringify(presupuesto);
     const headers = new HttpHeaders({'ContentType': 'application/json'});
@@ -18,30 +18,30 @@ export class PresupuestosService {
     return this.http.post(this.presURL, newpres, {headers});
   }
 
-  getPresupuestos(){
+  getPresupuestos() {
 
     return this.http.get(this.presURL);
   }
 
-  getPresupuesto(id$: string){
+  getPresupuesto(id$: string) {
 
-    const url= `${this.preURL}/${id$}.json`;
+    const url = `${this.preURL}/${id$}.json`;
 
     return this.http.get(url);
 
   }
 
-  putPresupuesto(presupuesto: any, id$: string){
+  putPresupuesto(presupuesto: any, id$: string) {
 
     const newpre = JSON.stringify(presupuesto);
     const headers = new HttpHeaders({'ContentType': 'application/json'});
 
-    const url= `${this.preURL}/${id$}.json`;
+    const url = `${this.preURL}/${id$}.json`;
 
     return this.http.put(url, newpre, {headers});
   }
 
-  delPresupuesto(id$: string){
+  delPresupuesto(id$: string) {
 
     const url = `${this.preURL}/${id$}.json`;
 
