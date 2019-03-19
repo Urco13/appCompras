@@ -23,6 +23,7 @@ import { GuardService } from './servicios/guard.service';
 
 import { FacturasModule } from './facturas/facturas.module';
 import { AddfraComponent } from './facturas/facturas/addfra/addfra.component';
+import { FacturasComponent } from './facturas/facturas/facturas/facturas.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'inises', component: InisesComponent },
   { path: 'addfra', component: AddfraComponent },
+  { path: 'facturas', component: FacturasComponent },
   { path: '**', component: InicioComponent }
 
 ]

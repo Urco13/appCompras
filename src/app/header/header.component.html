@@ -14,6 +14,10 @@
             <li class="nav-item" routerLinkActive="active" *ngIf="isAtuth()">
                 <a class="nav-link" routerLink="/presupuestos">Presupuestos</a>
             </li>
+            <li class="nav-item" routerLinkActive="active"
+             *ngIf="isAtuth()">
+              <a class="nav-link" routerLink="/facturas">Facturas</a>
+            </li>
             <li class="nav-item" routerLinkActive="active" *ngIf="!isAtuth()">
                 <button class="btn btn-primary" routerLink="/inises">Inicio sesion</button>
             </li>

@@ -23,7 +23,7 @@ export class AddfraComponent implements OnInit {
     this.facturaForm = this.formBuilder.group({
       proveedor: ['', Validators.required ],
       fecha: ['', Validators.required ],
-      concepto: ['', Validators.required, Validators.minLength(10) ],
+      concepto: ['', Validators.required],
       base: ['', Validators.required ],
       tipo: ['', Validators.required ],
       iva: this.iva,
@@ -48,7 +48,7 @@ export class AddfraComponent implements OnInit {
     this.factura = this.saveFactura();
     this.facturaService.postFactura( this.factura )
         .subscribe(newfra => {
-        })
+        });
     this.facturaForm.reset();
   }
 

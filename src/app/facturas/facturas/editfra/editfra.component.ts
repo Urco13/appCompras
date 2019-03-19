@@ -20,16 +20,16 @@ export class EditfraComponent implements OnInit {
   id: string;
 
   constructor(private pf: FormBuilder,
-              private facturaService: FacturasService,
-              private router: Router,
-              private activatedRouter: ActivatedRoute) {
-      this.activatedRouter.params
-        .subscribe( parametros => {
-          this.id = parametros['id'];
+    private facturaService: FacturasService,
+    private router: Router,
+    private activatedRouter: ActivatedRoute) {
+            this.activatedRouter.params
+            .subscribe( parametros => {
+            this.id = parametros['id'];
             this.facturaService.getFactura( this.id)
-              .subscribe( factura => this.factura = factura)
-        });
-  }
+            .subscribe( factura => this.factura = factura )
+});
+}
 
   ngOnInit() {
 
@@ -61,7 +61,7 @@ onSubmit() {
   this.facturaService.putFactura( this.factura, this.id )
       .subscribe(newfra => {
         this.router.navigate(['/facturas'])
-      })
+      });
 
 }
 
