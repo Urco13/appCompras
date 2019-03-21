@@ -28,6 +28,8 @@ import { GuardService } from './servicios/guard.service';
 import { FacturasModule } from './facturas/facturas.module';
 import { AddfraComponent } from './facturas/facturas/addfra/addfra.component';
 import { FacturasComponent } from './facturas/facturas/facturas/facturas.component';
+import { UploadComponent } from './uploads/upload/upload.component';
+import { LoadfileService } from './servicios/loadfile.service';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -56,6 +58,7 @@ const routes: Routes = [
     EditpresComponent,
     RegistroComponent,
     InisesComponent,
+    UploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,7 @@ const routes: Routes = [
     AngularFireAuthModule
 
   ],
-  providers: [ProveedoresService, PresupuestosService, AutenticacionService, GuardService],
+  providers: [ProveedoresService, PresupuestosService, AutenticacionService, GuardService, LoadfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
