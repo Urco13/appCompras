@@ -11,5 +11,15 @@ export class LoadfileService {
   private basePath: string = '/uploads';
   uploads: FirebaseListObservable<Archivo[]>;
 
-  constructor() { }
+  constructor(public angularFireDatabase: AngularFireDatabase) {}
+
+  pushUpload(upload: Archivo) {
+    const storageRef = firebase.storage().ref();
+    const uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
+
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshop) => {
+       upload.progress = (snapshot.byteTransferred /)
+      })
+    }
 }
