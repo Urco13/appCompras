@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFirestore } from 'angularfire2/firestore';
 import * as firebase from 'firebase';
-import { Archivo } from '../uploads/upload/file.modal';
+import { FileItem } from '../subida/file.modal';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoadfileService {
 
-  private basePath: string = '/uploads';
-  uploads: FirebaseListObservable<Archivo[]>;
+  private CARPPETA_ARCHIVOS = 'img';
+  //public archivo: File;
 
-  constructor(public angularFireDatabase: AngularFireDatabase) {}
 
-  pushUpload(upload: Archivo) {
-    const storageRef = firebase.storage().ref();
-    const uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
+  constructor( private db: AngularFirestore) { }
 
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-      (snapshop) => {
-       upload.progress = (snapshot.byteTransferred /)
-      })
-    }
+  cargarArchivosFirebase( archivos: FileItem[] ) {
+
+    console.log( archivos );
+  }
+
+  private guardarArchivo( archivo: { nombre: String, url: String } ) {
+
+    this.db.collection(`/${this.CARPPETA_ARCHIVOS}`).add( archivo );
+  }
+
 }

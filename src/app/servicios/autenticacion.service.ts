@@ -16,7 +16,7 @@ export class AutenticacionService {
     });
   }
 
-  inicioSesion(userdata){
+  inicioSesion(userdata) {
     firebase.auth().signInWithEmailAndPassword(userdata.email, userdata.password)
     .then( response => {
       console.log(response);
@@ -25,16 +25,16 @@ export class AutenticacionService {
     });
   }
 
-  isAuthenticated(){
+  isAuthenticated() {
     const user = firebase.auth().currentUser;
-    if(user){
+    if (user) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  logout(){
+  logout() {
     firebase.auth().signOut();
   }
 }

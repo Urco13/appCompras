@@ -4,9 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+// firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
+
 import { enviroment } from './config/firebase.config';
 
 import { AppComponent } from './app.component';
@@ -28,7 +33,7 @@ import { GuardService } from './servicios/guard.service';
 import { FacturasModule } from './facturas/facturas.module';
 import { AddfraComponent } from './facturas/facturas/addfra/addfra.component';
 import { FacturasComponent } from './facturas/facturas/facturas/facturas.component';
-import { UploadComponent } from './uploads/upload/upload.component';
+import { SubidaComponent } from './subida/subida.component';
 import { LoadfileService } from './servicios/loadfile.service';
 
 const routes: Routes = [
@@ -42,9 +47,10 @@ const routes: Routes = [
   { path: 'inises', component: InisesComponent },
   { path: 'addfra', component: AddfraComponent },
   { path: 'facturas', component: FacturasComponent },
+  { path: 'uploads', component: SubidaComponent },
   { path: '**', component: InicioComponent }
 
-]
+];
 
 @NgModule({
   declarations: [
@@ -57,8 +63,8 @@ const routes: Routes = [
     AddpresComponent,
     EditpresComponent,
     RegistroComponent,
-    InisesComponent,
-    UploadComponent,
+    SubidaComponent,
+    InisesComponent
   ],
   imports: [
     BrowserModule,
@@ -69,10 +75,11 @@ const routes: Routes = [
     FacturasModule,
     AngularFireModule.initializeApp(enviroment.firebase),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     AngularFireAuthModule
 
   ],
-  providers: [ProveedoresService, PresupuestosService, AutenticacionService, GuardService, LoadfileService],
+  providers: [ProveedoresService, PresupuestosService, AutenticacionService, GuardService, LoadfileService, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
