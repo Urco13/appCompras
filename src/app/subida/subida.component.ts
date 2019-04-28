@@ -9,6 +9,7 @@ import { LoadfileService } from '../servicios/loadfile.service';
 })
 export class SubidaComponent implements OnInit {
 
+  estaSobreElemento = false;
   archivos: FileItem[] = [];
 
   constructor( public cargaArchivos: LoadfileService ) { }
@@ -19,5 +20,9 @@ export class SubidaComponent implements OnInit {
   cargarArchi() {
 
     this.cargaArchivos.cargarArchivosFirebase( this.archivos );
+  }
+
+  limpiarArchivos() {
+    this.archivos = [];
   }
 }

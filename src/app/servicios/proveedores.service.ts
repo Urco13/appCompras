@@ -50,7 +50,7 @@ export class ProveedoresService {
 
   getProveedoresSearch(busqueda: string) {
 
-    const url = `${this.provURL}?orderBy="nombre"&startAt="${ busqueda }"&endAt="${ busqueda }\uf8ff"`;
+    const url = `${this.provURL} ? orderBy="nombre"&startAt="${ busqueda }"&endAt="${ busqueda }\uf8ff"`;
     return this.http.get(url);
   }
 }
