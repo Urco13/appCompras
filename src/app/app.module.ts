@@ -81,7 +81,7 @@ const routes: Routes = [
     AngularFireAuthModule
 
   ],
-  providers: [ProveedoresService, PresupuestosService, AutenticacionService, GuardService, LoadfileService, AngularFirestore],
+  providers: [ProveedoresService, PresupuestosService, AutenticacionService, GuardService, LoadfileService, AngularFirestore ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

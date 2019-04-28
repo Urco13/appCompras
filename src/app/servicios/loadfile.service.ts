@@ -13,7 +13,8 @@ export class LoadfileService {
   //public archivo: File;
 
 
-  constructor( private db: AngularFirestore) { }
+  constructor( private db: AngularFirestore) {}
+
 
   cargarArchivosFirebase( archivos: FileItem[] ) {
 
