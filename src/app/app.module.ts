@@ -36,6 +36,7 @@ import { FacturasComponent } from './facturas/facturas/facturas/facturas.compone
 import { SubidaComponent } from './subida/subida.component';
 import { LoadfileService } from './servicios/loadfile.service';
 import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
+import { ArchivosSubidosComponent } from './archivos/archivos-subidos/archivos-subidos.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'addfra', component: AddfraComponent },
   { path: 'facturas', component: FacturasComponent },
   { path: 'uploads', component: SubidaComponent },
+  { path: 'photos', component: ArchivosSubidosComponent},
   { path: '**', component: InicioComponent }
 
 ];
@@ -66,7 +68,8 @@ const routes: Routes = [
     RegistroComponent,
     SubidaComponent,
     InisesComponent,
-    NgDropFilesDirective
+    NgDropFilesDirective,
+    ArchivosSubidosComponent
   ],
   imports: [
     BrowserModule,
