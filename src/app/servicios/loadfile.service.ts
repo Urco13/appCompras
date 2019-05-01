@@ -34,16 +34,16 @@ export class LoadfileService {
       ( error ) => console.error( 'Error al subir', error),
       () => {
         console.log('Imagen cargada correctamente');
-        item.url = uploadTask.snapshot.downloadURL;
-        item.estaSubiendo = false;
-        this.guardarArchivo({
-          nombre: item.fileName,
-          url: item.url
-        });
+        uploadTask.snapshot.ref.getDownloadURL().then( downloadUrl => {
+          item.url = downloadUrl;
+          item.estaSubiendo = false;
+          this.guardarArchivo({ nombre: item.fileName, url: item.url });
+        })
+        .catch(error => console.log({error}));
+            }
 
-       });
-    }
-  }
+      )}
+}
 
   private guardarArchivo( archivo: { nombre: String, url: String } ) {
 

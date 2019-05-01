@@ -45,9 +45,8 @@ export class NgDropFilesDirective {
   private extraerArchivos( archivosListas: FileList ) {
 
 
-// tslint:disable-next-line: comment-format
-    //console.log( archivosListas);
 
+// tslint:disable-next-line: forin
     for ( const propiedad in Object.getOwnPropertyNames( archivosListas ) ) {
 
       const archivoTemporal = archivosListas[propiedad];
@@ -93,6 +92,6 @@ export class NgDropFilesDirective {
 
   private esImagen( tipoArchivo: String): boolean {
 
-    return( tipoArchivo === '' || tipoArchivo === undefined ) ? false: tipoArchivo.startsWith('image');
+    return( tipoArchivo === '' || tipoArchivo === undefined ) ? false : tipoArchivo.startsWith('image');
   }
 }
